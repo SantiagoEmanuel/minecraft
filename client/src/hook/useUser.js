@@ -14,6 +14,7 @@ export function useUser() {
       .post('/auth/login', data, {
         headers: {
           'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
         },
       })
       .then(({ data }) => {
@@ -32,6 +33,7 @@ export function useUser() {
       .post('/auth/register', data, {
         headers: {
           'Content-Type': 'multipart/form-data',
+          'Access-Control-Allow-Origin': '*',
         },
       })
       .then(({ data }) => {
