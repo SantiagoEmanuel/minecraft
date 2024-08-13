@@ -55,7 +55,8 @@ donationsRoute.post("/create", async (req, res) => {
           installments: 1,
         },
         binary_mode: true,
-        // notification_url: "http://localhost:3000/donations/notification",
+        notification_url:
+          "https://fascinating-wc-indicate-insider.trycloudflare.com/donations/notification",
       },
     })
     .then((response) => {

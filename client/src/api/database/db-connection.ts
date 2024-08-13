@@ -1,6 +1,6 @@
-import axios from 'axios';
-const baseURL = 'http://localhost:8080';
+import axios from 'axios'
+const baseURL = 'https://fascinating-wc-indicate-insider.trycloudflare.com'
 
 export const fetch = axios.create({
-    baseURL: baseURL
+  baseURL: baseURL,
 })

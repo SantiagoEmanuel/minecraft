@@ -51,7 +51,9 @@ authRoute.post("/register", async (req, res) => {
       username: username,
       email: email,
       password: password,
-      avatar: `http://localhost:8080/${avatarPath}`,
+      avatar:
+        avatarPath &&
+        `https://fascinating-wc-indicate-insider.trycloudflare.com/${avatarPath}`,
     },
     process.env.JWT_SECRET
   );
@@ -69,7 +71,9 @@ authRoute.post("/register", async (req, res) => {
         id: id,
         username,
         email,
-        avatar: `http://localhost:8080/${avatarPath}`,
+        avatar:
+          avatarPath &&
+          `https://fascinating-wc-indicate-insider.trycloudflare.com/${avatarPath}`,
       },
       token: token,
     });
@@ -98,7 +102,9 @@ authRoute.post("/login", async (req, res) => {
         username: user[0].username,
         email: user[0].email,
         password: password,
-        avatar: user[0].avatar && `http://localhost:8080/${user[0].avatar}`,
+        avatar:
+          user[0].avatar &&
+          `https://fascinating-wc-indicate-insider.trycloudflare.com/${user[0].avatar}`,
       },
       process.env.JWT_SECRET
     );
@@ -116,7 +122,9 @@ authRoute.post("/login", async (req, res) => {
           id: user[0].id,
           username: user[0].username,
           email: user[0].email,
-          avatar: user[0].avatar && `http://localhost:8080/${user[0].avatar}`,
+          avatar:
+            user[0].avatar &&
+            `https://fascinating-wc-indicate-insider.trycloudflare.com/${user[0].avatar}`,
         },
         token: token,
       });
@@ -160,7 +168,9 @@ authRoute.post("/refresh", async (req, res) => {
           username: user[0].username,
           email: user[0].email,
           password: password,
-          avatar: user[0].avatar && `http://localhost:8080/${user[0].avatar}`,
+          avatar:
+            user[0].avatar &&
+            `https://fascinating-wc-indicate-insider.trycloudflare.com/${user[0].avatar}`,
         },
         process.env.JWT_SECRET
       );
@@ -178,7 +188,9 @@ authRoute.post("/refresh", async (req, res) => {
             id: user[0].id,
             username: user[0].username,
             email: user[0].email,
-            avatar: user[0].avatar && `http://localhost:8080/${user[0].avatar}`,
+            avatar:
+              user[0].avatar &&
+              `https://fascinating-wc-indicate-insider.trycloudflare.com/${user[0].avatar}`,
           },
           token: newToken,
         });
@@ -201,7 +213,9 @@ authRoute.post("/refresh", async (req, res) => {
           username: user[0].username,
           email: user[0].email,
           password: password,
-          avatar: user[0].avatar && `http://localhost:8080/${user[0].avatar}`,
+          avatar:
+            user[0].avatar &&
+            `https://fascinating-wc-indicate-insider.trycloudflare.com/${user[0].avatar}`,
         },
         process.env.JWT_SECRET
       );
@@ -219,7 +233,9 @@ authRoute.post("/refresh", async (req, res) => {
             id: user[0].id,
             username: user[0].username,
             email: user[0].email,
-            avatar: user[0].avatar && `http://localhost:8080/${user[0].avatar}`,
+            avatar:
+              user[0].avatar &&
+              `https://fascinating-wc-indicate-insider.trycloudflare.com/${user[0].avatar}`,
           },
           token: newToken,
         });
