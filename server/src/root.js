@@ -19,14 +19,7 @@ const uploadDir = join(__dirname, "uploads");
 const app = express();
 
 // Configure middlewares
-app.use(
-  cors({
-    origin: ["http://localhost:5173/", "https://minecraft-khaki.vercel.app/"],
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-  })
-);
+app.use(cors());
 app.use(json());
 app.use(cookieParser());
 

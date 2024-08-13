@@ -22,7 +22,7 @@ donationsRoute.get("/", async (_req, res) => {
     total += donation.amount;
     donation.avatar =
       donation.avatar &&
-      `https://minecraft-nnsl.onrender.com/${donation.avatar}`;
+      `https://seas-becoming-perry-speech.trycloudflare.com/${donation.avatar}`;
   });
 
   return res.status(200).send({
@@ -59,7 +59,7 @@ donationsRoute.post("/create", async (req, res) => {
         },
         binary_mode: true,
         notification_url:
-          "https://minecraft-nnsl.onrender.com/donations/notification",
+          "https://seas-becoming-perry-speech.trycloudflare.com/donations/notification",
       },
     })
     .then((response) => {

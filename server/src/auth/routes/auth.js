@@ -51,7 +51,9 @@ authRoute.post("/register", async (req, res) => {
       username: username,
       email: email,
       password: password,
-      avatar: avatarPath && `https://minecraft-nnsl.onrender.com/${avatarPath}`,
+      avatar:
+        avatarPath &&
+        `https://seas-becoming-perry-speech.trycloudflare.com/${avatarPath}`,
     },
     process.env.JWT_SECRET
   );
@@ -70,7 +72,8 @@ authRoute.post("/register", async (req, res) => {
         username,
         email,
         avatar:
-          avatarPath && `https://minecraft-nnsl.onrender.com/${avatarPath}`,
+          avatarPath &&
+          `https://seas-becoming-perry-speech.trycloudflare.com/${avatarPath}`,
       },
       token: token,
     });
@@ -103,7 +106,7 @@ authRoute.post("/login", async (req, res) => {
         password: password,
         avatar:
           user[0].avatar &&
-          `https://minecraft-nnsl.onrender.com/${user[0].avatar}`,
+          `https://seas-becoming-perry-speech.trycloudflare.com/${user[0].avatar}`,
       },
       process.env.JWT_SECRET
     );
@@ -123,7 +126,7 @@ authRoute.post("/login", async (req, res) => {
           email: user[0].email,
           avatar:
             user[0].avatar &&
-            `https://minecraft-nnsl.onrender.com/${user[0].avatar}`,
+            `https://seas-becoming-perry-speech.trycloudflare.com/${user[0].avatar}`,
         },
         token: token,
       });
@@ -169,7 +172,7 @@ authRoute.post("/refresh", async (req, res) => {
           password: password,
           avatar:
             user[0].avatar &&
-            `https://minecraft-nnsl.onrender.com/${user[0].avatar}`,
+            `https://seas-becoming-perry-speech.trycloudflare.com/${user[0].avatar}`,
         },
         process.env.JWT_SECRET
       );
@@ -189,7 +192,7 @@ authRoute.post("/refresh", async (req, res) => {
             email: user[0].email,
             avatar:
               user[0].avatar &&
-              `https://minecraft-nnsl.onrender.com/${user[0].avatar}`,
+              `https://seas-becoming-perry-speech.trycloudflare.com/${user[0].avatar}`,
           },
           token: newToken,
         });
@@ -214,7 +217,7 @@ authRoute.post("/refresh", async (req, res) => {
           password: password,
           avatar:
             user[0].avatar &&
-            `https://minecraft-nnsl.onrender.com/${user[0].avatar}`,
+            `https://seas-becoming-perry-speech.trycloudflare.com/${user[0].avatar}`,
         },
         process.env.JWT_SECRET
       );
@@ -234,7 +237,7 @@ authRoute.post("/refresh", async (req, res) => {
             email: user[0].email,
             avatar:
               user[0].avatar &&
-              `https://minecraft-nnsl.onrender.com/${user[0].avatar}`,
+              `https://seas-becoming-perry-speech.trycloudflare.com/${user[0].avatar}`,
           },
           token: newToken,
         });
