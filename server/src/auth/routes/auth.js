@@ -79,6 +79,8 @@ authRoute.post("/register", async (req, res) => {
 authRoute.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
+  console.log(email);
+
   const { rows: user } = await db.execute({
     sql: "select * from users where email = ?",
     args: [email],
