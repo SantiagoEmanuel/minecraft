@@ -6,6 +6,7 @@
   "main": "/src/root.js",
   "scripts": {
     "dev": "node --watch ./src/root.js",
+    "build": "pnpm install",
     "start": "node ./src/root.js"
   },
   "dependencies": {
@@ -21,7 +22,7 @@
     "uuid": "10.0.0",
     "zod": "3.23.8"
   },
-   "devDependencies": {
+  "devDependencies": {
     "@types/bcrypt": "5.0.2",
     "@types/cookie-parser": "1.4.7",
     "@types/cors": "2.8.17",
