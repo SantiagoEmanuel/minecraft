@@ -20,6 +20,9 @@ donationsRoute.get("/", async (_req, res) => {
 
   rows.forEach((donation) => {
     total += donation.amount;
+    donation.avatar =
+      donation.avatar &&
+      `https://minecraft-nnsl.onrender.com/${donation.avatar}`;
   });
 
   return res.status(200).send({
@@ -56,7 +59,7 @@ donationsRoute.post("/create", async (req, res) => {
         },
         binary_mode: true,
         notification_url:
-          "https://fascinating-wc-indicate-insider.trycloudflare.com/donations/notification",
+          "https://minecraft-nnsl.onrender.com/donations/notification",
       },
     })
     .then((response) => {
