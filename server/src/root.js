@@ -15,6 +15,14 @@ const __filename = fileURLToPath(import.meta.url);
 export const __dirname = dirname(__filename);
 const uploadDir = join(__dirname, "uploads");
 
+// Initialize app
+const app = express();
+
+// Configure middlewares
+app.use(cors());
+app.use(json());
+app.use(cookieParser());
+
 // Multer config.
 import { v4 } from "uuid";
 const storage = multer.diskStorage({
@@ -26,14 +34,6 @@ const storage = multer.diskStorage({
   },
 });
 const upload = multer({ storage: storage });
-
-// Initialize app
-const app = express();
-
-// Configure middlewares
-app.use(cors());
-app.use(json());
-app.use(cookieParser());
 app.use("/uploads", express.static(join(__dirname, "uploads")));
 
 // ROUTES

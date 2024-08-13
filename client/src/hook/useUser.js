@@ -1,24 +1,17 @@
 import axios from 'axios'
 import { useState } from 'react'
-import { User, UserRegister } from '../type/User'
 import { ToastNotifications } from '../utils/toastNotifications'
 import { useNavigate } from 'react-router-dom'
-
-// ⬇️ FACTORIZAR EL CÓDIGO
-
-const API_URL = 'http://localhost:8080'
-const fetch = axios.create({
-  baseURL: API_URL,
-})
+import { fetch } from '../api/database/db-connection'
 
 export function useUser() {
-  const [user, setUser] = useState(null as unknown as User)
+  const [user, setUser] = useState(null)
 
   const redirect = useNavigate()
 
-  const login = (data: UserRegister) => {
+  const login = (data) => {
     fetch
-      .post('auth/login', data, {
+      .post('/auth/login', data, {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -34,9 +27,9 @@ export function useUser() {
       })
   }
 
-  const register = (data: UserRegister) => {
+  const register = (data) => {
     fetch
-      .post('auth/register', data, {
+      .post('/auth/register', data, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -53,7 +46,7 @@ export function useUser() {
   }
 
   const logout = () => {
-    setUser(null as unknown as User)
+    setUser(null)
     localStorage.removeItem('authToken')
     ToastNotifications.success('Has cerrado sesión con éxito!')
     return redirect('/')

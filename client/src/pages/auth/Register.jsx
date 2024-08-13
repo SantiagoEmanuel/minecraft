@@ -1,15 +1,14 @@
 import { Link } from 'react-router-dom'
 import { useUserContext } from '../../hook/useUserContext'
-import { UserRegister } from '../../type/User'
 import { Input } from '../../components/Input'
 
 export function Register() {
   const { register } = useUserContext()
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     const data = new FormData(e.target)
-    register(data as unknown as UserRegister)
+    register(data)
   }
 
   return (
@@ -29,7 +28,7 @@ export function Register() {
               type="file"
               name="avatar"
               className="rounded-md border-2 border-white p-2 outline-none"
-              accept='image/*'
+              accept="image/*"
             />
           </label>
           <Input

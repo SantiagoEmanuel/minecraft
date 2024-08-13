@@ -10,12 +10,12 @@ export function Input({
   defaultValue = '',
   className,
   disabled = false,
-}: InputProps) {
+}) {
   const id = uuidV4()
   const [focus, setFocus] = useState(false)
 
   useEffect(() => {
-    const input = document.getElementById(`input-${id}`)!
+    const input = document.getElementById(`input-${id}`)
 
     input.addEventListener('focusin', () => {
       setFocus(true)
@@ -52,15 +52,4 @@ export function Input({
       />
     </label>
   )
-}
-
-interface InputProps {
-  label: string
-  type: string
-  name: string
-  onChange?: () => void
-  readOnly?: boolean
-  defaultValue?: string
-  className?: string
-  disabled?: boolean
 }

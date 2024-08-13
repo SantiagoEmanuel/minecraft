@@ -6,7 +6,7 @@ export function UserButton() {
   const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
-    const menu = document.getElementById('user-menu')!
+    const menu = document.getElementById('user-menu')
 
     menu.addEventListener('mouseleave', () => {
       setIsOpen(false)

@@ -1,7 +1,7 @@
 import { UserContext } from '../context/UserContext'
 import { useUser } from '../hook/useUser'
 
-export const UserProvider = ({ children }: { children: React.ReactNode }) => {
+export const UserProvider = ({ children }) => {
   const { user, login, register, logout } = useUser()
 
   return (

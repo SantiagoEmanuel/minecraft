@@ -1,15 +1,14 @@
 import { Link } from 'react-router-dom'
 import { useUserContext } from '../../hook/useUserContext'
-import { UserRegister } from '../../type/User'
 import { Input } from '../../components/Input'
 
 export function Login() {
   const { login } = useUserContext()
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     const data = new FormData(e.target)
-    login(data as unknown as UserRegister)
+    login(data)
   }
 
   return (

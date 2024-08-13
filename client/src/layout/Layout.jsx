@@ -5,7 +5,7 @@ import { ToastContainer } from 'react-toastify'
 import { useUserContext } from '../hook/useUserContext'
 import { UserButton } from '../components/layout/UserButton'
 
-export function Layout({ children }: { children: React.ReactNode }) {
+export function Layout({ children }) {
   const { user, logout } = useUserContext()
 
   return (

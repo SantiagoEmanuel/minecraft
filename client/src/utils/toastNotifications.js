@@ -1,7 +1,7 @@
 import { toast } from 'react-toastify'
 
 export class ToastNotifications {
-  static success(message: string) {
+  static success(message) {
     toast.success(message, {
       position: 'top-right',
       closeOnClick: true,
@@ -12,7 +12,7 @@ export class ToastNotifications {
     })
   }
 
-  static error(message: string) {
+  static error(message) {
     toast.error(message, {
       position: 'top-right',
       closeOnClick: true,
