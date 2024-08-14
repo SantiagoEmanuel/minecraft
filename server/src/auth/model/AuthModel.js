@@ -39,9 +39,7 @@ export class AuthModel {
       message: "¡Usuario creado con éxito!",
       data: {
         id,
-        avatar: avatar
-          ? `https://minecraft-nnsl.onrender.com/${avatar}`
-          : avatar,
+        avatar: avatar ? `https://minecraft-nnsl.onrender.com/${avatar}` : null,
         username,
         email,
         token,
@@ -72,7 +70,7 @@ export class AuthModel {
                 email: rows[0].email,
                 avatar: rows[0].avatar
                   ? `http://localhost:8080/${rows[0].avatar}`
-                  : rows[0],
+                  : null,
               },
               process.env.JWT_SECRET
             );
@@ -85,7 +83,7 @@ export class AuthModel {
                 id: rows[0].id,
                 avatar: rows[0].avatar
                   ? `https://minecraft-nnsl.onrender.com/${avatar}`
-                  : rows[0].avatar,
+                  : null,
                 username: rows[0].username,
                 email,
                 token,
@@ -134,7 +132,7 @@ export class AuthModel {
             id,
             avatar: avatar
               ? `https://minecraft-nnsl.onrender.com/${avatar}`
-              : avatar,
+              : null,
             username,
             email,
             token: newToken,
