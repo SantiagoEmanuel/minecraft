@@ -47,7 +47,8 @@ export class DonationModel {
             installments: 1,
           },
           binary_mode: true,
-          // notification_url: "",
+          notification_url:
+            "https://minecraft-nnsl.onrender.com/donations/notification",
         },
       });
 
