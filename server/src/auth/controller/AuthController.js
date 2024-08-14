@@ -1,3 +1,4 @@
+import { relative } from "node:path";
 import { validateUser } from "../schema/schema.js";
 import { __dirname } from "../../root.js";
 import { AuthModel } from "../model/AuthModel.js";
