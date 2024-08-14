@@ -57,7 +57,7 @@ export function Layout({ children }) {
           )}
         </nav>
       </header>
-      <main>{children}</main>
+      <main className="min-h-full flex-1">{children}</main>
       <footer className="flex h-[150px] items-start justify-between gap-4 p-4 py-4 max-[550px]:flex-col">
         <div>
           <p>
