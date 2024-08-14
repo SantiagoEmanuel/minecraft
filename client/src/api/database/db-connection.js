@@ -1,5 +1,5 @@
 import axios from 'axios'
-const baseURL = 'https://seas-becoming-perry-speech.trycloudflare.com'
+const baseURL = 'https://minecraft-nnsl.onrender.com'
 
 export const fetch = axios.create({
   baseURL: baseURL,
