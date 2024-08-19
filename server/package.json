@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "node --watch ./src/root.js",
     "build": "pnpm install",
-    "start": "node ./src/root.js"
+    "start": "node ./src/root.js",
+    "preview": "pnpm install && node ./src/root.js"
   },
   "dependencies": {
     "@libsql/client": "0.9.0",
@@ -33,5 +34,5 @@
   },
   "keywords": [],
   "author": "Santiago Mustafa",
-  "license": "ISC"
+  "license": ""
 }
