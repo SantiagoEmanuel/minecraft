@@ -6,7 +6,7 @@ import { UserButton } from '../components/layout/UserButton'
 import { ServerStatusCard } from '../components/layout/cards/ServerStatusCard'
 
 export function Layout({ children }) {
-  const { user, logout } = useUserContext()
+  const { user } = useUserContext()
 
   return (
     <>
