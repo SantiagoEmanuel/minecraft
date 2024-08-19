@@ -29,6 +29,7 @@ export function Register() {
               name="avatar"
               className="rounded-md border-2 border-white p-2 outline-none"
               accept="image/*"
+              disabled={true}
             />
           </label>
           <Input
