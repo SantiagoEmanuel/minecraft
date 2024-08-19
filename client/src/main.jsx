@@ -11,6 +11,7 @@ import { Login } from './pages/auth/Login'
 import { Register } from './pages/auth/Register'
 import { ErrorHandler } from './pages/error/ErrorHandler'
 import { ErrorPage } from './pages/error/ErrorPage'
+import { ForumHome } from './pages/forum/home'
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: '/donation',
         element: <Donation />,
+      },
+      {
+        path: 'forum',
+        element: <ForumHome />,
       },
       {
         path: '/login',
