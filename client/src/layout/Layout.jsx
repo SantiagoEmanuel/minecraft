@@ -15,7 +15,6 @@ export function Layout({ children }) {
           to={'/'}
           className="relative flex flex-col items-center justify-center"
         >
-          <span></span>
           <img src={logo} alt="logo" className="h-auto w-full max-w-[75px]" />
           <h1 className="text-base font-bold">Minecraft Web</h1>
         </Link>
