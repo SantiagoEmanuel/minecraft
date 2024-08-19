@@ -7,7 +7,6 @@ export function UserButton() {
 
   useEffect(() => {
     const menu = document.getElementById('user-menu')
-
     menu.addEventListener('mouseleave', () => {
       setIsOpen(false)
     })
@@ -23,12 +22,14 @@ export function UserButton() {
     <div className="relative">
       <button
         className="grid items-center gap-2 rounded-md px-4 py-2 font-bold text-white"
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => {
+          setIsOpen(!isOpen)
+        }}
       >
         <img
           src={user.avatar || '/icon/user-image.png'}
           alt="avatar"
-          className="aspect-square h-auto w-full max-w-[50px] rounded-full"
+          className={`aspect-square h-auto w-full max-w-[50px] rounded-full transition-all duration-300 ${isOpen ? '' : 'avatar'}`}
         />
         <span className="text-sm">{user.username}</span>
       </button>
