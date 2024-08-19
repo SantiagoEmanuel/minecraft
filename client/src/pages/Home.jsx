@@ -4,7 +4,7 @@ import cover2 from '../assets/cover/cover-2.png'
 export function Home() {
   return (
     <>
-      <section className="relative w-full max-[2840px]:w-[1024px]">
+      <section className="relative max-[2840px]:w-[1024px] max-[1024px]:w-full">
         <img
           src={cover || cover2}
           alt="screenshot del servidor de Minecraft Web"
