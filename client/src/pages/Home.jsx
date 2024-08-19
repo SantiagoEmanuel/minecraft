@@ -4,13 +4,13 @@ import cover2 from '../assets/cover/cover-2.png'
 export function Home() {
   return (
     <>
-      <section className="relative w-[1024px] max-lg:w-full">
+      <section className="relative w-full max-[2840px]:w-[1024px]">
         <img
           src={cover || cover2}
           alt="screenshot del servidor de Minecraft Web"
-          className="h-auto w-[1024px] blur-[4px] max-lg:w-full"
+          className="h-full blur-[4px]"
         />
-        <p className="absolute left-1/2 top-1/2 box-content flex w-full -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-lg bg-black/20 px-4 py-2 text-6xl font-bold text-white max-[502px]:text-4xl">
+        <p className="absolute left-1/2 top-1/2 box-content flex w-full max-w-max -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-lg bg-black/20 px-4 py-2 text-6xl font-bold text-white max-[502px]:text-4xl">
           MINECRAFT WEB
         </p>
       </section>
