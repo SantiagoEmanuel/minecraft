@@ -40,10 +40,12 @@ app.use("/uploads", express.static(join(__dirname, "uploads")));
 // -> Import routes
 import { authRoute } from "./auth/routes/auth.js";
 import { donationsRoute } from "./donations/routes/donation.js";
+import { forumRoutes } from "./forum/routes/forum.js";
 
 // -> Set routes
 app.use("/auth", upload.single("avatar"), authRoute);
 app.use("/donations", donationsRoute);
+app.use("/forum", forumRoutes);
 
 // Bad request handler
 app.use((_req, res) => {
