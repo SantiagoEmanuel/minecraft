@@ -9,3 +9,7 @@
 ::-webkit-scrollbar {
   width: 0;
 }
+
+.avatar {
+  rotate: y 180deg;
+}
