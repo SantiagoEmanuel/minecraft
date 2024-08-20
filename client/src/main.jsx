@@ -12,6 +12,7 @@ import { Register } from './pages/auth/Register'
 import { ErrorHandler } from './pages/error/ErrorHandler'
 import { ErrorPage } from './pages/error/ErrorPage'
 import { ForumHome } from './pages/forum/home'
+import { ServerHome } from './pages/server/ServerHome'
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
       {
         path: '/error',
         element: <ErrorPage />,
+      },
+      {
+        path: '/server/config',
+        element: <ServerHome />,
       },
     ],
     errorElement: <ErrorHandler />,
