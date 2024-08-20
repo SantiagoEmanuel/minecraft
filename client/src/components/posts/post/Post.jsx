@@ -5,6 +5,8 @@ import { PostIcon } from '../icons/Post'
 
 export function Post({
   content = 'Hola como estas, este es el servidor de Minecraft, espero sea de tu agrado, se trata de tener la experiencia más vanilla posible.',
+  owner = 'unknown',
+  avatar = null,
 }) {
   const { user } = useUserContext()
   return (
@@ -13,14 +15,14 @@ export function Post({
         <div className="flex w-full justify-between">
           <div className="flex items-center gap-1">
             <img
-              src={user.avatar ? user.avatar : '/icon/user-image.png'}
+              src={avatar ? avatar : '/icon/user-image.png'}
               alt="Avatar del usuario"
               className="h-full w-full max-w-[24px]"
               style={{
                 rotate: 'y 180deg',
               }}
             />
-            <p className="text-center">{user.username}</p>
+            <p className="text-center">{owner}</p>
           </div>
           <img
             src="/favicon.ico"
