@@ -67,7 +67,14 @@ export function ForumHome() {
       <section className="mx-auto my-10 flex min-h-full max-w-3xl flex-col-reverse gap-4 rounded-md p-4">
         {loading && <PostSkeleton />}
         {posts?.map((post) => {
-          return <Post key={post.id} content={post.content} />
+          return (
+            <Post
+              key={post.id}
+              content={post.content}
+              owner={post.username}
+              avatar={post.avatar}
+            />
+          )
         })}
         {!posts && (
           <p className="text-center text-2xl font-bold">
