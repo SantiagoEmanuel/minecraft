@@ -61,9 +61,11 @@ export class DonationController {
     });
   }
   static async notification(req, res) {
-    const { id } = req.body;
+    const { data } = req.body;
 
-    const result = await DonationModel.checkNotification({ id });
+    const result = await DonationModel.checkNotification({
+      id: data.id,
+    });
 
     return res.status(result.status).send({
       message: result.message,
