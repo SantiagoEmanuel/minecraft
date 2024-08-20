@@ -95,21 +95,25 @@ export class ForumModel {
 
   static async getAllPosts() {
     try {
-      return await db.execute("SELECT * FROM posts;").then(({ rows }) => {
-        if (rows.length === 0)
-          return {
-            success: false,
-            status: 204,
-            message: "No se encontraron publicaciones",
-          };
+      return await db
+        .execute(
+          "SELECT posts.id, posts.content, posts.date, users.username, users.avatar FROM posts INNER JOIN users on posts.userId = users.id;"
+        )
+        .then(({ rows }) => {
+          if (rows.length === 0)
+            return {
+              success: false,
+              status: 204,
+              message: "No se encontraron publicaciones",
+            };
 
-        return {
-          success: true,
-          status: 200,
-          message: "Se han encontrado resultados",
-          data: rows,
-        };
-      });
+          return {
+            success: true,
+            status: 200,
+            message: "Se han encontrado resultados",
+            data: rows,
+          };
+        });
     } catch (error) {
       return {
         success: false,

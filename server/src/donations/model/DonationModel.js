@@ -93,8 +93,8 @@ export class DonationModel {
       });
     });
   }
-  static checkNotification({ id }) {
-    payment
+  static async checkNotification({ id }) {
+    return await payment
       .get({
         id,
       })

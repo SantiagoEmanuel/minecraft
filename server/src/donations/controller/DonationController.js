@@ -60,9 +60,14 @@ export class DonationController {
       },
     });
   }
-  static notification(req, res) {
+  static async notification(req, res) {
     const { id } = req.body;
 
-    DonationModel.checkNotification({ id });
+    const result = await DonationModel.checkNotification({ id });
+
+    return res.status(result.status).send({
+      message: result.message,
+      success: result.success,
+    });
   }
 }
