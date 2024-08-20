@@ -19,6 +19,7 @@ export function Layout({ children }) {
           <h1 className="text-base font-bold">Minecraft Web</h1>
         </Link>
         <nav className="flex max-w-2xl items-center justify-evenly gap-4">
+          <Link to={'/server/config'}>Recursos necesarios</Link>
           {user !== null ? (
             <>
               <Link
