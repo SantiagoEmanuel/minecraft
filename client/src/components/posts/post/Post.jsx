@@ -7,6 +7,7 @@ export function Post({
   content = 'Hola como estas, este es el servidor de Minecraft, espero sea de tu agrado, se trata de tener la experiencia más vanilla posible.',
   owner = 'unknown',
   avatar = null,
+  comments = null,
 }) {
   const { user } = useUserContext()
   return (
@@ -45,6 +46,29 @@ export function Post({
           <PostIcon />
         </button>
       </footer>
+      {comments && (
+        <section className="grid gap-4 rounded-md border p-2">
+          <h4>Comments</h4>
+          {comments.map((comment) => (
+            <div className="grid gap-2">
+              <header className="flex h-full w-full gap-1">
+                <img
+                  src={comment.avatar ? comment.avatar : '/icon/user-image.png'}
+                  alt="Avatar del usuario"
+                  className="h-full w-full max-w-[24px]"
+                  style={{
+                    rotate: 'y 180deg',
+                  }}
+                />
+                <p className="text-center">{comment.owner}</p>
+              </header>
+              <div className="rounded-md border p-2">
+                <p>{comment.content}</p>
+              </div>
+            </div>
+          ))}
+        </section>
+      )}
     </article>
   )
 }

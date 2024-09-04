@@ -73,6 +73,18 @@ export function ForumHome() {
               content={post.content}
               owner={post.username}
               avatar={post.avatar}
+              comments={[
+                {
+                  avatar: null,
+                  owner: 'Santiago',
+                  content: 'Este es un comentario fijado',
+                },
+                {
+                  avatar: null,
+                  owner: 'Santiago',
+                  content: 'Este es un comentario fijado',
+                },
+              ]}
             />
           )
         })}
