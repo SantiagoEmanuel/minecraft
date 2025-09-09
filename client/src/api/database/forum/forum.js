@@ -1,8 +1,12 @@
 import { fetch } from '../db-connection'
 
-export const createPost = async ({ content, userId }) => {
+export const createPost = async ({ content, userId, title }) => {
   return await fetch
-    .post('/forum/post/create', { content: content, userId: userId })
+    .post('/forum/post/create', {
+      content: content,
+      userId: userId,
+      title: title,
+    })
     .then(({ data }) => {
       return data.data
     })
