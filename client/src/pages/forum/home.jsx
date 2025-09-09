@@ -18,9 +18,13 @@ export function ForumHome() {
     }
     getData()
 
-    setInterval(async () => {
+    const id = setInterval(async () => {
       setPosts(await getPosts())
-    }, 60000)
+    }, 30000)
+
+    return () => {
+      clearInterval(id)
+    }
   }, [])
 
   const getData = async () => {
@@ -37,6 +41,7 @@ export function ForumHome() {
     const data = {
       userId: user.id,
       content: formData.get('content'),
+      title: formData.get('title'),
     }
 
     document.getElementById('postForm').reset()
@@ -53,10 +58,18 @@ export function ForumHome() {
           <p className="text-lg">
             ¡Comparte lo que estás pensando con el resto del servidor!
           </p>
+          <label>
+            <input
+              type="text"
+              placeholder="¿Cuál es el título?"
+              className="w-full rounded-md px-1 py-2 outline-none"
+              name="title"
+            />
+          </label>
           <textarea
             name="content"
             className="min-h-[100px] w-full rounded-md px-1 py-2 outline-none"
-            placeholder="¿En qué estás pensando?"
+            placeholder="¿Cuál es el contenido?"
           ></textarea>
           <button className="max-w-[80px] rounded-md border py-1 font-bold transition-colors hover:border-orange-500 hover:bg-orange-500">
             Publicar
@@ -75,11 +88,13 @@ export function ForumHome() {
               avatar={post.avatar}
               comments={[
                 {
+                  id: 1,
                   avatar: null,
                   owner: 'Santiago',
                   content: 'Este es un comentario fijado',
                 },
                 {
+                  id: 2,
                   avatar: null,
                   owner: 'Santiago',
                   content: 'Este es un comentario fijado',
