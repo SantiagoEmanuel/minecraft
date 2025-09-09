@@ -1,7 +1,7 @@
 import z from "zod";
 
 const donationSchema = z.object({
-  id: z.number(),
+  id: z.string(),
   title: z.string(),
   description: z.string(),
   unit_price: z.number(),
