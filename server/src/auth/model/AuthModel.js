@@ -1,4 +1,4 @@
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import { db } from "../../api/database/turso.js";
 import { v4 } from "uuid";
 import jwt from "jsonwebtoken";
@@ -12,7 +12,7 @@ export class AuthModel {
 
     try {
       db.execute({
-        sql: "INSERT INTO users (id, avatar, username, email, password) VALUES (?, ?, ?, ?, ?);",
+        sql: "INSERT INTO users (id, avatar, username, email, password_hashed) VALUES (?, ?, ?, ?, ?);",
         args: [id, avatar, username, email, passwordHashed],
       });
     } catch (err) {
@@ -39,7 +39,7 @@ export class AuthModel {
       message: "¡Usuario creado con éxito!",
       data: {
         id,
-        avatar: avatar ? `https://minecraft-nnsl.onrender.com/${avatar}` : null,
+        avatar: avatar ? `http://localhost:8080/${avatar}` : null,
         username,
         email,
         token,
@@ -50,8 +50,8 @@ export class AuthModel {
     try {
       return await db
         .execute({
-          sql: "SELECT * FROM users where email = ?",
-          args: [email],
+          sql: "SELECT * FROM users where email = ? OR username = ?",
+          args: [email, email],
         })
         .then(({ rows }) => {
           if (rows.length === 0) {
@@ -62,7 +62,7 @@ export class AuthModel {
             };
           }
 
-          if (bcrypt.compareSync(password, rows[0].password)) {
+          if (bcrypt.compareSync(password, rows[0].password_hashed)) {
             const token = jwt.sign(
               {
                 id: rows[0].id,
@@ -82,7 +82,7 @@ export class AuthModel {
               data: {
                 id: rows[0].id,
                 avatar: rows[0].avatar
-                  ? `https://minecraft-nnsl.onrender.com/${avatar}`
+                  ? `http://localhost:8080/${rows[0].avatar}`
                   : null,
                 username: rows[0].username,
                 email,
@@ -106,11 +106,11 @@ export class AuthModel {
       };
     }
   }
-  static getDataToken({ cookieToken, storageToken }) {
-    if (cookieToken || storageToken) {
+  static getDataToken({ storageToken }) {
+    if (storageToken) {
       try {
         const { id, avatar, username, email } = jwt.verify(
-          cookieToken || storageToken,
+          storageToken,
           process.env.JWT_SECRET
         );
 
@@ -130,9 +130,7 @@ export class AuthModel {
           message: "¡Has iniciado sesión!",
           data: {
             id,
-            avatar: avatar
-              ? `https://minecraft-nnsl.onrender.com/${avatar}`
-              : null,
+            avatar: avatar ? `http://localhost:8080/${avatar}` : null,
             username,
             email,
             token: newToken,
