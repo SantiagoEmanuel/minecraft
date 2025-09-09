@@ -96,11 +96,9 @@ export class AuthController {
       });
   }
   static refresh(req, res) {
-    const cookieToken = req.cookie.auth_token;
-    const storageToken = req.body;
+    const storageToken = req.body.auth_token;
 
     const result = AuthModel.getDataToken({
-      cookieToken,
       storageToken,
     });
 
