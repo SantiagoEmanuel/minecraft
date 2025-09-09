@@ -3,6 +3,6 @@ import dotenv from "dotenv";
 dotenv.config();
 
 export const db = createClient({
-  url: process.env.DATABASE_URL,
+  url: "libsql://minecraft-santiagoemanuel.aws-us-east-1.turso.io",
   authToken: process.env.DATABASE_TOKEN,
 });
