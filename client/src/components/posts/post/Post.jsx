@@ -50,7 +50,7 @@ export function Post({
         <section className="grid gap-4 rounded-md border p-2">
           <h4>Comments</h4>
           {comments.map((comment) => (
-            <div className="grid gap-2">
+            <div className="grid gap-2" key={comment.id}>
               <header className="flex h-full w-full gap-1">
                 <img
                   src={comment.avatar ? comment.avatar : '/icon/user-image.png'}
