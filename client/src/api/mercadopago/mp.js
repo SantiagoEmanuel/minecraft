@@ -1,4 +1,3 @@
-import { ToastNotifications } from '../../utils/toastNotifications'
 import { fetch } from '../database/db-connection'
 
 export const getPreferenceId = ({ item, payer }) =>
