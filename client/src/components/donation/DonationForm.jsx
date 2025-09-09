@@ -4,6 +4,7 @@ import { getPreferenceId } from '../../api/mercadopago/mp'
 import { ToastNotifications } from '../../utils/toastNotifications'
 import { useUserContext } from '../../hook/useUserContext'
 import { initMercadoPago, Wallet } from '@mercadopago/sdk-react'
+import { v4 } from 'uuid'
 
 initMercadoPago(import.meta.env.VITE_MP_PUBLIC_KEY)
 
@@ -17,11 +18,12 @@ export function DonationForm() {
     data.append('userId', user.id)
 
     const item = {
-      id: Math.random() * 1500,
+      id: v4(),
       title: 'Donación',
       unit_price: data.get('amount'),
       quantity: 1,
-      description: 'Donación para mantener el servidor de Minecraft de amigos',
+      description:
+        'Donación para mantener el servidor y sitio web de Minecraft',
     }
 
     const payer = {
@@ -36,6 +38,7 @@ export function DonationForm() {
         setPreferenceId(data.data.preferenceId)
       })
       .catch(({ response }) => {
+        console.log(response.data.message)
         return ToastNotifications.error(response.data.message)
       })
   }
