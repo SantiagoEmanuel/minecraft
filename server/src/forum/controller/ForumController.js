@@ -2,7 +2,7 @@ import { ForumModel } from "../model/ForumModel.js";
 
 export class ForumController {
   static async newPost(req, res) {
-    const { content, userId } = req.body;
+    const { content, userId, title } = req.body;
     const date = new Date().toISOString().split("T")[0];
 
     // Validate data after
@@ -10,7 +10,7 @@ export class ForumController {
     const result = await ForumModel.savePost({
       postContent: content,
       userId: userId,
-      date: date,
+      title: title,
     });
 
     return res.status(result.status).send({
