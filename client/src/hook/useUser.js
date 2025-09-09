@@ -3,11 +3,31 @@ import { useState } from 'react'
 import { ToastNotifications } from '../utils/toastNotifications'
 import { useNavigate } from 'react-router-dom'
 import { fetch } from '../api/database/db-connection'
+import { useEffect } from 'react'
 
 export function useUser() {
   const [user, setUser] = useState(null)
 
   const redirect = useNavigate()
+
+  useEffect(() => {
+    loginWithToken(localStorage.getItem('authToken'))
+  }, [])
+
+  const loginWithToken = async (token) => {
+    const { data } = await fetch.post(
+      '/auth/refresh',
+      { auth_token: token },
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+        },
+      },
+    )
+
+    setUser(data.data)
+  }
 
   const login = (data) => {
     fetch
