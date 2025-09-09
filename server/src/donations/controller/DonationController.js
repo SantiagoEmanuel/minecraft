@@ -46,6 +46,8 @@ export class DonationController {
       payer: payerValidation.data,
     });
 
+    console.log("llegamos");
+
     if (!result.success) {
       return res.status(result.status).send({
         message: result.message,
